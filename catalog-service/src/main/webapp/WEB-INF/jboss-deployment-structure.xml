@@ -1,0 +1,15 @@
+<jboss-deployment-structure>
+	<deployment> 
+		<dependencies>
+			<module name="javax.transaction.api"/>
+			<module name="org.jboss.jts" /> 
+		</dependencies>
+		<exclusions>
+			<module name="org.hibernate" />
+			<module name="org.hibernate.commons-annotations" />
+		</exclusions>
+	</deployment> 
+</jboss-deployment-structure>
+
+
+

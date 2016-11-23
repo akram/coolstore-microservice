@@ -2,15 +2,27 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                            xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">  
   <persistence-unit name="primary" transaction-type="JTA">
-   <jta-data-source/>
-      <properties>
+	 <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+	 <properties>
       <property name="hibernate.ogm.datastore.provider" value="mongodb"/>
+		 
+			<property name="hibernate.ogm.datastore.host" value="database"/>
       <property name="hibernate.ogm.mongodb.host" value="database"/>
-			<property name="hibernate.ogm.mongodb.database" value="${MONGODB_DATABASE}"/>
-      <property name="hibernate.ogm.mongodb.username" value="${MONGODB_USER}"/>
-      <property name="hibernate.ogm.mongodb.password" value="${MONGODB_PASSWORD}"/>
+	
+			<property name="hibernate.ogm.datastore.database" value="catalog"/>
+			<property name="hibernate.ogm.mongodb.database" value="catalog"/>
+	
+			<property name="hibernate.ogm.datastore.username" value="user"/>
+			<property name="hibernate.ogm.mongodb.username" value="user"/>
+
+			<property name="hibernate.ogm.datastore.password" value="password"/>
+			<property name="hibernate.ogm.mongodb.password" value="password"/>
+
+			<property name="hibernate.ogm.datastore.create_database" value="true" />
     </properties>
-  </persistence-unit>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<class>com.redhat.coolstore.model.Product</class>
+	</persistence-unit>
 </persistence>  
 
 
